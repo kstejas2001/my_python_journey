@@ -36,9 +36,7 @@ Multiple assignment & swap
 
 x, y = 3, 4
 
-# swap
-
-x, y = y, x
+x, y = y, x # swap
 
 Input function input() returns a string. Convert if you need numbers:
 
