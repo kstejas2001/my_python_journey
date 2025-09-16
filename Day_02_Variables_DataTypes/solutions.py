@@ -39,8 +39,8 @@ num2 = int(num2_str)
 
 # Step 3: Calculate the sum and print using an f-string
 # Calculate the sum of the two integers and then use an f-sring to display the result
-sum = num1 + num2
-print(f"Sum of {num1} and {num2} is: {sum}")
+result = num1 + num2 # Changed variable 'sum' into 'result' - because Python already has a built-in function sum() Using it as a variable overwrites the built-in in your program.
+print(f"Sum of {num1} and {num2} is: {result}")
 
 
 # Solution 4: Rectangle area (mini-challenge)
