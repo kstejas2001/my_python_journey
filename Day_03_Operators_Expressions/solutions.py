@@ -1,9 +1,13 @@
 # Solution 1: Arithmetic and precedence
 
-# Step 1: Understand Python's operator Precedence: 1. Parenthese (), 2. Exponentiation **, 3. Multiplication * and division / (evaluted from left to right), 4. Addition + and Subtraction - (evaluated from left to right)
+# Step 1: Understand Python's operator Precedence: According to Python precedence:
+# 1. Parentheses ()
+# 2. Exponentiation **
+# 3. Multiplication / Division (left to right)
+# 4. Addition / Subtraction (left to right)
 
 # Step 2: Evaluate the Expression Step-by-Step.
-# The given expression is:  # result = 3 + 4 * 2 ** 3 - (6 / 3)
+# The given expression is:  result = 3 + 4 * 2 ** 3 - (6 / 3)
 
 # 1. Parentheses/Brackets:
 par = 6 / 3 # (6 / 3) = 2. The expression becomes: result = 3 + 4 * 2 ** 3 - 2
@@ -27,12 +31,12 @@ print(sub)
 # According to Python's operator precedence, oprations within parantheses are evaluted first, followed by exponentiation, then multiplication/division, and finally addition/subtraction.
 
 # Short One
-par = 6 / 3
-power = 2 ** 3
-mul = 4 * power
-add = 3 + mul
-sub = add - par
-print(sub)
+result = 3 + 4 * 2 ** 3 - (6 / 3)
+print(f"Final result (with float division): {result}")
+
+# If integer result is needed:
+result_int = 3 + 4 * 2 ** 3 - (6 // 3)
+print(f"Final result (with integer division): {result_int}")
 
 
 # Solution 2: Modulo use-case
@@ -44,9 +48,9 @@ n = int(input("Enter a number: "))
 
 # Step 3: Apply the modulo operator and condition logic. We use if-else statement to check the condition n%2==0. If the condition is true, the number is even, and we print "even" else "odd"
 if n % 2 == 0:
-    print('even')
+    print(f"{n} is even")
 else:
-    print('odd')
+    print(f"{n} is add")
 
 
 # Solution 3: Logical condition
@@ -68,9 +72,9 @@ print(can_enter)
 points = 0
 
 # Step 2: Read the score and add to points (Use a for loop to iterate 3 times(range(3) in to read 3 integer scores form the user. Each iterate, convert the input score to integer and add it to points += operator.))
-for _ in range(3):
-    score = int(input('score: '))
-    points += score
+for i in range(3):
+    score = int(input(f"Enter score {i+1}: "))
+    points += score # Compound assi
 
 # Print the total points.
 print(points)
