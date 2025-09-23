@@ -57,16 +57,19 @@ else:
 
 # Step 1: Get user input for age and ID status(Prompt the user to enter their age and store it in a variable and also prompt the user to answer whether they have an ID (y/n) and store the response in a variable.)
 age = int(input("Enter your age: "))
-has_id = input("Have ID? (y/n): ").lower() == 'y'
+has_id = input("Do you have an ID? (y/n): ").lower() == 'y'
 
 # Step 2: Determine if the user can enter (This means the user can enter only if they are 18 or older AND they have an ID.)
 can_enter = age >= 18 and has_id
 
 # Step 3: Print the result (Print the value of can_enter to inform the user if they meet the entry requirements.)
-print(can_enter)
+if can_enter:
+    print("Access granted. You can enter.")
+else:
+    print("Access denied. You must be 18+ and have an ID.")
 
 
-# Solution 4: Compound assignment
+# Solution 4: Compound assignment (+=)
 
 # Step 1: Initialize points (Start by init the points variable to 0)
 points = 0
