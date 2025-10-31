@@ -210,7 +210,9 @@ To find an element within a list in Python, several method are available, depend
   except ValueError:
   print("Banana not found in the list.")
 
-# 8. Quick notes (lists -- essentials)
+---
+
+# Quick notes (lists -- essentials)
 
 - **What:** A list stores multiple items in ordered, is mutable. Example: nums = [1, 2, 3, 4]
 - **Indexing:** num[0] --> first item, num[-1] --> last item.
