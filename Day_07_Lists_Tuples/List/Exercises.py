@@ -1,12 +1,12 @@
 # Tiny examples
 
-# 1. Creating list elements
+# 1. Create list elements
 fruits = ["apple", "banana", "cherry", "mango", "orange", "kiwi"]
 
 # Print the number of items in the list
 print(len(fruits)) # 6
 
-# Print the type of list
+# Print the type
 print(type(fruits)) # <class 'list'>
 
 
@@ -26,28 +26,59 @@ if "apple" in fruits:
 # 3. Modification of items
 # a. Change the value of a specific item
 my_list = [1, 2, 0, 4, 5]
-print(f"Before changing: {my_list}") # [1, 2, 0, 4, 5]
+print(f"Before changing: {my_list}")
 my_list[2] = 3
-print(f"After change: {my_list}") # [1, 2, 3, 4, 5]
+print(f"After change: {my_list}")
 
 # b. Insert items
-my_list.insert(0, 0)
-print(f"Insert new item: {my_list}") # [0, 1, 2, 3, 4, 5]
+my_list.insert(4, 0)
+print(f"Inserting new item: {my_list}")
 
 # c. Append() Items
 my_list.append(6)
-print(f"After append: {my_list}") # [0, 1, 2, 3, 4, 5, 6]
+print(f"After append: {my_list}")
 
 # d. Remove Specified Item
-my_list.remove(0)
-print(f"Removing the first item {my_list}") # [1, 2, 3, 4, 5, 6]
+my_list.remove(6)
+print(f"Removing the specified item: {my_list}")
+
+# e. Remove Specified Index
+my_list.pop(4)
+print(f"Remove specified index: {my_list}")
+
+
+# 4. Loop Lists
+# Loop Through a List
+this_list = ["apple", "banana", "cherry"]
+for x in this_list:
+    print(x)
+
+# From Index Numbers
+this_list = ["apple", "banana", "cherry"]
+for i in range(len(this_list)):
+    print(this_list[i])
+
+# While 
+numbers = [1, 2, 3, 4, 5]
+i = 0
+while i < len(numbers):
+    print(numbers[i])
+    i = i + 1
 
 
 
-# Implement the following:
+# Implement the following: 
+# Exercise 1 — Simple
 
 # 1. Make a list 'nums' containing numbers 5, 2, 9, 1, 5.
 # 2. Print its length.
 # 3. Add the number '7' to the end.
 # 4. Remove the first '5' from the list.
 # 5. Sort the list in ascending order and print the final list.
+
+
+# Exercise 2 — Nested Lists
+
+# 1. Create a nested list named 'matrix' with three lists: [ [1,2,3], [4,5,6], [7,8,9] ]
+# 2. Print the number at row 2, column 3 (expected output → 6).
+# 3. Use a nested 'for' loop to print every element on a new line.
