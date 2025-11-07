@@ -110,6 +110,8 @@ print(even_squares)
 [ expression for item in iterable if condition ]
 ```
 
+---
+
 ## Common List Operations & Methods
 
 - **Adding elements:** `append()`, `insert()`, `extend()`
