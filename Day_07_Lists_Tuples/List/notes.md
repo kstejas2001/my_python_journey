@@ -109,6 +109,12 @@ print(even_squares)
 ```python
 [ expression for item in iterable if condition ]
 ```
+- **expression:** The operation to perform n each `item`.
+- **item:** The variable representing the current element in the iteration.
+- **iterable:** The source sequence (list, tuple, string, range, etc.).
+- **if condition (optional):** A filter to include only items where the ccondition evaluate to `True`.
+
+---
 
 ## Common List Operations & Methods
 
