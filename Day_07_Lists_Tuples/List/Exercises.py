@@ -66,6 +66,27 @@ while i < len(numbers):
     i = i + 1
 
 
+# 5. List Comprehension
+# Creating list of squares from range
+square = [x * x for x in range(1, 6)]
+print(square) # Output: [1, 4, 9, 16, 25]
+
+# Using 'for' loop:
+squares = []
+for x in range(1, 6):
+    squares.append(x * x)
+    print(squares)
+
+# list of only even numbers:
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+even_numbers = [x for x in numbers if x % 2 == 0]
+print(even_numbers) # Output: [2, 4, 6, 8]
+
+# With if-else (Conditional Expression):
+numbers = [1, 2, 3, 4, 5]
+result = ["Even" if n % 2 == 0 else "Odd" for n in numbers]
+print(result) # Output: ['Odd', 'Even', 'Odd', 'Even', 'Odd']
+
 
 # Implement the following: 
 # Exercise 1 — Simple
@@ -76,9 +97,14 @@ while i < len(numbers):
 # 4. Remove the first '5' from the list.
 # 5. Sort the list in ascending order and print the final list.
 
-
 # Exercise 2 — Nested Lists
 
 # 1. Create a nested list named 'matrix' with three lists: [ [1,2,3], [4,5,6], [7,8,9] ]
 # 2. Print the number at row 2, column 3 (expected output → 6).
 # 3. Use a nested 'for' loop to print every element on a new line.
+
+# Exercise 3 — List Comprehension
+
+# 1. Create a list of squares from 1 to 10 using list comprehension.
+# 2. Print the list.
+# 3. Then, create a new list containing only 'even squares'.
