@@ -10,11 +10,33 @@ t = (1, 2, 3)
 t = 1, 2, 3
 ```
 
+---
+
+## Key characteristics
+
+- **Ordered:** The order of elements in a tuple is maintained and does not change.
+- **Finite:** A tuple has a fixed number of elements.
+- **Immutable:** Once a tuple is created, its elements cannot be modified, added, or removed. We can, however, create a new tuple based on the old one.
+- **Heterogeneous:** Tuples can contain elements of different data types, such as strings, integers, and booleans, within the same tuple.
+- **Indexed:** Each element in a tuple is assigned an index, starting from zero, which can be used to access the element.
+
+---
+
 ### Single-element tuple (common pitfall)
 
 ```python
 t = (5,) # correct single-element tuple
 not_a_tuple = (5) # this is just the number 5
+```
+
+### type()
+
+tuples are defined as objects with data type 'tuple':
+`<class 'tuple'>`
+
+```python
+mytuple = ("apple", "banana", "cherry")
+print(type(mytuple)) # <class 'tuple'>
 ```
 
 ### Allow Duplicates
@@ -34,6 +56,8 @@ thistuple = ("apple", "banana", "cherry")
 print(len(thistuple)) # 3
 ```
 
+---
+
 ## Why use tuples?
 
 - Immutability makes data safer (can't accidentally change).
@@ -42,25 +66,81 @@ print(len(thistuple)) # 3
 
 ---
 
-## Key characteristics
-
-- **Ordered:** The order of elements in a tuple is maintained and does not change.
-- **Immutable:** Once a tuple is created, its elements cannot be modified, added, or removed. We can, however, create a new tuple based on the old one.
-- **Heterogeneous:** Tuples can contain elements of different data types, such as strings, integers, and booleans, within the same tuple.
-- **Indexed:** Each element in a tuple is assigned an index, starting from zero, which can be used to access the element.
-
----
-
 ## Accessing items
 
-- Indexing and slicing works like lists:
+Tuple items can be accessed using indexing, similar to how elements in a list are accessed.
 
 ```python
 t = (10, 20, 30)
+# 1. Positive indexing:
 print (t[0]) # 10
+print (t[1]) # 20
+
+# 2. Negative Indexing:
 print (t[-1]) # 30
-print (t[0:2]) #(10, 20)
+print (t[-2]) # 20
+
+# 3. Slicing (Range of Indexes):
+my_tuple = ("apple", "banana", "cherry", "orange", "kiwi")
+print(my_tuple[1:4]) # ("apple", "banana", "cherry")
+print(my_tuple[:3]) # ("apple", "banana", "cherry")
+print(my_tuple[2:]) # ("cherry", "orange", "kiwi")
+print(my_tuple[-4:-1]) # ("banana", "cherry", "orange")
 ```
+
+### Check if Item Exists
+
+To determine if a specified item is present in a tuple use the `in` keyword:
+
+```python
+thistuple = ("apple", "banana", "cherry")
+if "apple" in thistuple:
+    print("Yes, 'apple is in the fruits tuple")
+```
+
+---
+
+## Immutability - what we can still do
+
+Tuples in Python are immutable, which means their elements **cannot be changed, added, or removed after the tuple's creation**. However, there are workarounds to achieve the effect of "updating" a tuple by creating a new tuple with the desired modifications.
+
+### Common methods for "updating" tuple:
+
+- **Convert to List, Modify, Covert Back to Tuple:** This is the most common and versatile method for making individual element changes.
+
+```python
+my_tuple = ("apple", "banana", "cherry")
+temp_list = list(my_tuple) # Convert to a list
+temp_list[1] = "kiwi" # Modify the list
+my_tuple = tuple(temp_list) # Convert back to a tuple
+print(my_tuple) # ("apple", "banana", "cherry", "kiwi")
+```
+
+- **Tuple Concatenation:** This method is useful for adding elements to the end of a tuple or combining multiple tuples.
+
+```python
+my_tuple = (1, 2, 3)
+new_elements = (4, 5)
+updated_tuple = my_tuple + new_elements # Creates a new tuple
+print(updated_tuple) # (1, 2, 3, 4, 5)
+
+# To "change" an element using concatenation and slicing:
+original_tuple = ("a", "b", "c")
+index_to_change = 1
+new_value = "x"
+updated_tuple = original_tuple[:index_to_change] + (new_value,) + original_tuple[index_to_change+1:]
+print(updated_tuple) # ("a", "x", "c")
+```
+
+- **Reassignment:** If the entire tuple needs to be replaced with a new set of values, simply reassign the variable to a new tuple.
+
+```python
+my_tuple = (10, 20, 30)
+my_tuple = (100, 20, 30) # Reassigning the variable to a new tuple
+print(my_tuple) # (100, 20, 30)
+```
+
+---
 
 ## Tuple methods
 
@@ -77,20 +157,82 @@ print(t.index(3)) # 3 -> index 3
 
 ---
 
-## Tuple Items -Data Types
+## Tuple Items - Data Types
 
 Tuple items can be any data type:
 
 ```python
-tuple1 = ("apple", "banana", "cherry")
-tuple2 = (1, 5, 7, 9, 3)
-tuple3 = (True, False, False)
+tuple1 = ("apple", "banana", "cherry") # String
+tuple2 = (1, 5, 7, 9, 3) # Int
+tuple3 = (True, False, False) #Boolean
 ```
 
-A tuple can contain different data types:
+A tuple can contain mixed data types:
 
 ```python
 tuple1 = ("abc", 34, True, 40, "male")
+```
+
+### Returning multiple values from a function
+
+```python
+def get_user_info():
+    return ("Bob", 30)
+
+name, age = get_user_info()
+print(name) # Output: Bob
+print(age): # Output: 30
+```
+
+---
+
+## The tuple() Constructor
+
+The `tuple()` constructor in python is a built-in function used to crate tuple objects.
+
+### How to use `tuple()` constructor:
+
+Creating an empty tuple.
+
+```python
+my_empty_tuple = tuple()
+print(my_empty_tuple) # ()
+```
+
+### Converting an iterable to a tuple:
+
+The `tuple()` constructor can take an iterable (like a list, string, set, or range) as an argument and convert it into a tuple.
+
+- **From a list**
+
+```python
+my_list = [1, 2, 3, 4]
+my_tuple_from_list = tuple(my_list)
+print(my_tuple_from_list) # (1, 2, 3, 4)
+```
+
+- **From a String**
+
+```python
+my_string = "hello"
+my_tuple_from_string = tuple(my_string)
+print(my_tuple_from_string) # ('h', 'e', 'l', 'l', 'o')
+```
+
+- **From a set**
+
+```python
+my_set = {10, 20, 30}
+my_tuple_from_set = tuple(my_set)
+print(my_tuple_from_set) # (10, 20, 30) # Order might vary as sets are unordered
+```
+
+- **From a range**
+
+```python
+my_range = range(5)
+my_tuple_from_range = tuple(my_range)
+print(my_tuple_from_range) # (0, 1, 2, 3, 4)
 ```
 
 ---
@@ -115,10 +257,7 @@ name, age, dept = person
 a, b, *rest = (1, 2, 3, 4, 5) # a=1, b=2, rest=[3,4,5]
 ```
 
-## Immutability - what we can still do
-
-- Reassign the variable name to a new tuple: `t = (1, 2); t = (3, 4)` is allowed
-- Convert to list to modify, then back: `lst = list(t); lst[0] = 9; t = tuple(lst)`
+---
 
 ## Tuple as dictionary keys
 
@@ -141,6 +280,8 @@ Example:
 t = ([1, 2], 3)
 t[0].append(5) # allowed - inner list mutated
 ```
+
+---
 
 ## When to choose tuple vs list
 
