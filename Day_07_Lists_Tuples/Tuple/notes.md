@@ -10,13 +10,20 @@ t = (1, 2, 3)
 t = 1, 2, 3
 ```
 
+### Creating Tuples:
+
+```python
+# Empty tuple
+empty_tuple = ()
+```
+
 ---
 
 ## Key characteristics
 
 - **Ordered:** The order of elements in a tuple is maintained and does not change.
 - **Finite:** A tuple has a fixed number of elements.
-- **Immutable:** Once a tuple is created, its elements cannot be modified, added, or removed. We can, however, create a new tuple based on the old one.
+- **Immutable:** Once a tuple is created, its elements cannot be modified, added, or removed. We can, however, create a new tuple based on the old one. Attempting to do so will result in a `TypeError`
 - **Heterogeneous:** Tuples can contain elements of different data types, such as strings, integers, and booleans, within the same tuple.
 - **Indexed:** Each element in a tuple is assigned an index, starting from zero, which can be used to access the element.
 
@@ -82,7 +89,7 @@ print (t[-2]) # 20
 
 # 3. Slicing (Range of Indexes):
 my_tuple = ("apple", "banana", "cherry", "orange", "kiwi")
-print(my_tuple[1:4]) # ("apple", "banana", "cherry")
+print(my_tuple[1:4]) # ("banana", "cherry", "orange")
 print(my_tuple[:3]) # ("apple", "banana", "cherry")
 print(my_tuple[2:]) # ("cherry", "orange", "kiwi")
 print(my_tuple[-4:-1]) # ("banana", "cherry", "orange")
@@ -116,6 +123,14 @@ my_tuple = tuple(temp_list) # Convert back to a tuple
 print(my_tuple) # ("apple", "banana", "cherry", "kiwi")
 ```
 
+- **Reassignment:** If the entire tuple needs to be replaced with a new set of values, simply reassign the variable to a new tuple.
+
+```python
+my_tuple = (10, 20, 30)
+my_tuple = (100, 20, 30) # Reassigning the variable to a new tuple
+print(my_tuple) # (100, 20, 30)
+```
+
 - **Tuple Concatenation:** This method is useful for adding elements to the end of a tuple or combining multiple tuples.
 
 ```python
@@ -132,12 +147,14 @@ updated_tuple = original_tuple[:index_to_change] + (new_value,) + original_tuple
 print(updated_tuple) # ("a", "x", "c")
 ```
 
-- **Reassignment:** If the entire tuple needs to be replaced with a new set of values, simply reassign the variable to a new tuple.
+- **Use Unpacking (Python 3.5+):** The unpacking operator (\*) provides a clean way to merge tuples or insert elements when creating a new tuple.
 
 ```python
-my_tuple = (10, 20, 30)
-my_tuple = (100, 20, 30) # Reassigning the variable to a new tuple
-print(my_tuple) # (100, 20, 30)
+# Original tuple
+fruits = ("apple", "banana", "cherry")
+# Unpack the original tuple and add new elements to create a new tuple
+new_fruits = (*fruits[:1], "kiwi", *fruits[2:])
+print(new_fruits) # ('apple', 'kiwi', 'cherry')
 ```
 
 ---
@@ -145,7 +162,7 @@ print(my_tuple) # (100, 20, 30)
 ## Tuple methods
 
 - `count(value)` - number of occurrences
-- `index(value)` - first index of value
+- `index(value)` - first index of value and returns the position
 
 ### Example:
 
@@ -247,14 +264,26 @@ person = "Thejas", 23, "ECE" # packed tuple
 
 - **Unpacking** assigns tuple elements to variable.
 
+Tuple unpacking, also known as multiple assignment or destructuring assignment, is a Python feature that allows you to assign the individual elements of a tuple (or any iterable) to multiple variables in a single line
+
 ```python
+person = "Thejas", 23, "ECE"
 name, age, dept = person
+print(name) # Thejas
+print(age) # 23
+print(dept) # ECE
 ```
 
-- Use **`*rest`** to capture remaining items;
+Use **`*rest`** to capture remaining items;
 
 ```python
 a, b, *rest = (1, 2, 3, 4, 5) # a=1, b=2, rest=[3,4,5]
+
+numbers = (10, 20, 30, 40, 50)
+first, *middle, last = numbers
+print(first)   # 10
+print(middle)  # [20, 30, 40]
+print(last)    # 50
 ```
 
 ---
@@ -264,6 +293,46 @@ a, b, *rest = (1, 2, 3, 4, 5) # a=1, b=2, rest=[3,4,5]
 ```python
 d = {}
 d[(1, 2)] = "pair"
+```
+
+---
+
+## Loop Tuples
+
+Looping through tuples in Python allows you to access and process each individual item within the tuple.
+
+- 1. Using `for` loop
+
+```python
+my_tuple = ("apple", "banana", "cherry")
+for item in my_tuple:
+    print(item)
+```
+
+- 2. Using a `for` loop with `range()` and `len()`:
+
+```python
+my_tuple = ("apple", "banana", "cherry")
+for i in range(len(my_tuple)):
+    print(f"Item at index {i}: {my_tuple[i]}")
+```
+
+- 3. Using a `for` loop with `enumerate()`:
+
+```python
+my_tuple = ("apple", "banana", "cherry")
+for index, value in enumerate(my_tuple):
+    print(f"Index: {index}, Value: {value}")
+```
+
+- 3. Using a `while` loop
+
+```python
+my_tuple = ("apple", "banana", "cherry")
+i = 0
+while i < len(my_tuple):
+    print(my_tuple[i])
+    i += 1
 ```
 
 ---
@@ -293,5 +362,5 @@ t[0].append(5) # allowed - inner list mutated
 
 - **Function return values:** A function can return multiple values bundled together in a single tuple.
 - **Data structures:** Tuples can represent a single record or row of data in a database table.
-- **Storing fixed data:** They are ideal for situations where you need to ensure the data will not change, like the coordinates of a point (x, y).
+- **Storing fixed data:** They are ideal for situations where we need to ensure the data will not change, like the coordinates of a point (x, y).
 - **Using as dictionary keys:** Since they are immutable, tuples can be used as keys in a dictionary, unlike lists.
