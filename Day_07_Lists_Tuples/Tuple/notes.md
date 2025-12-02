@@ -120,7 +120,7 @@ my_tuple = ("apple", "banana", "cherry")
 temp_list = list(my_tuple) # Convert to a list
 temp_list[1] = "kiwi" # Modify the list
 my_tuple = tuple(temp_list) # Convert back to a tuple
-print(my_tuple) # ("apple", "banana", "cherry", "kiwi")
+print(my_tuple) # ('apple', 'kiwi', 'cherry')
 ```
 
 - **Reassignment:** If the entire tuple needs to be replaced with a new set of values, simply reassign the variable to a new tuple.
