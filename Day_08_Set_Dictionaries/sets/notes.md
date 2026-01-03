@@ -1,6 +1,6 @@
 # sets
 
-A `set` is an `unordered` collection of `unique` elements meaning do not allow duplicate values. It is built-in data type. It is one of 4 built-in data types in python
+A `set` is an `unordered` collection of `unique, hashable elements` meaning do not allow duplicate values(mutable). It is built-in data type. It is one of 4 built-in data types in python. They also support mathematical operations such as union, intersection, and difference.
 
 **What is set? (Simple Definition)**
 
@@ -30,7 +30,7 @@ s = {1, 2, 3}
 
 ## Creating Sets:
 
-- Sets can be created using: curly braces `{}` or the `set()` constructor.
+- Sets can be created using: curly braces `{}` or the `set()` constructor. Curly braces are used for non-empty sets, ignoring duplicate values. For instance:
 
 ```python
 # 1. Creating a set using curly braces
@@ -88,9 +88,9 @@ print(thisset) # {False, True, 'cherry', 'banana', 'apple'}
 
 ---
 
-## Common Operations:
+## Common Set Operations:
 
-- **Adding elements:** Use `add()` for single element or `update()` for multiple elements (from an iterable).
+- **1. Adding elements:** Use `add()` for single element or `update()` for multiple elements (from an iterable).
 
 ```python
 my_set = {1, 2, 3}
@@ -117,7 +117,7 @@ thisset.update(mylist)
 print(thisset) # {'cherry', 'orange', 'apple', 'kiwi', 'banana'}
 ```
 
-- **Removing elements:** Use `remove()` (raises `KeyError` is element not found) or `discard()`(does nothing if element not found). `pop()` removes and returns an arbitrary element.
+- **2. Removing elements:** Use `remove()` (raises `KeyError` is element not found) or `discard()`(does nothing if element not found). `pop()` removes and returns an arbitrary element.
 
 ```python
 my_set = {1, 2, 3, 4, 5}
@@ -154,7 +154,7 @@ del thisset
 print(thisset) # error: not defined
 ```
 
-- **Membership testing:** Use the `in` keyword for efficient checks.
+- **3. Membership testing:** Use the `in` keyword for efficient checks.
 
 ```python
 my_set = {"apple", "banana", "mango"}
@@ -169,7 +169,7 @@ print(5 in s) # False
 
 - `add()` --> add only single elements
 - `update()` --> adds multiple elements
-- `remove()` --> error if the element not found
+- `remove()` --> removes element or error if the element not found
 - `discard()` --> safe remove, no error
 
 ### Get the Length of a Set
