@@ -159,9 +159,22 @@ print(f"using symmetric_difference method: {setD}") # {'banana', 'cherry', 'goog
 
 
 # =========== Exercise 1: Basic Operations
-# Create a set: {10, 20, 30, 40, 20, 10}
-# Print the set
-# Add the number 50
-# Remove the number 20
-# Check if 30 is in the set
-# Print the final set
+# 1. Create a set: {10, 20, 30, 40, 20, 10}
+# 2. Print the set
+# 3. Add the number 50
+# 4. Remove the number 20
+# 5. Check if 30 is in the set
+# 6. Print the final set
+
+# ============ Exercise 2: Set Operations
+# 1. Create two sets: A = {1, 2, 3, 4}, and B = {3, 4, 5, 6}
+# 2. Print: Union, Intersection, Difference (A - B), and Symmetric Difference
+
+
+# ============ Exercise 3: Real-world Use Cases
+# We have two lists of students:
+# python_students = ["Alice", "Bob", "Charlie", "David"]
+# java_students = ["Charlie", "David", "Eve", "Frank"]
+# 1. Find students who know both Python and Java.
+# 2. Find students who know only Python.
+# 3. Find students who know at least one of the two.
