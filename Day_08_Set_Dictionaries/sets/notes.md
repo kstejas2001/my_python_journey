@@ -268,5 +268,5 @@ unique_nums = set(nums)
 
 - Store a collection of unique items.
 - Efficiently check for membership of an element.
-- Remove duplicate elements from a list ot other sequence.
+- Remove duplicate elements from a list or other sequence.
 - Perform mathematical set operation.
